@@ -26,3 +26,4 @@ dist-ssr
 # AI Agent / tooling directories
 .agents
 .claude
+*.zip
