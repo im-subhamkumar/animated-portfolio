@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --orange: #ff6b1a;
+  --orange-dark: #ea580c;
+  --bg: #080808;
+  --text: #ffffff;
+  color-scheme: dark;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Hide native cursor on pointer devices for custom cursor */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hidden scrollbar like the reference */
+html {
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+
+::selection {
+  background: var(--orange);
+  color: #000;
+}
+
+::-moz-selection {
+  background: var(--orange);
+  color: #000;
+}
+
+/* ── Ghost serif — Playfair italic outline, zero fill ── */
+.ghost {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.45);
+  letter-spacing: -0.01em;
+}
+
+/* Coloured variant */
+.ghost-orange {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1.2px #ff6b1a;
+  letter-spacing: -0.01em;
+}
+
+/* ── Dark Glass Morphism Utilities ── */
+.dark-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px) saturate(150%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 45px -12px rgba(0, 0, 0, 0.5),
+    0 2px 6px -1px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.dark-glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(32px) saturate(160%);
+  -webkit-backdrop-filter: blur(32px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 25px 50px -15px rgba(0, 0, 0, 0.5),
+    0 0 25px -5px rgba(255, 107, 26, 0.03),
+    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark-glass-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 107, 26, 0.25);
+  box-shadow:
+    0 30px 60px -15px rgba(0, 0, 0, 0.6),
+    0 0 35px -5px rgba(255, 107, 26, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.dark-glass-pill {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ── Custom Cursor Styles ── */
+.glass-cursor--hover {
+  width: 56px !important;
+  height: 56px !important;
+}
+
+/* ── Film Grain Overlay ── */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.04;
+  will-change: transform;
+  contain: strict;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Subtle grid lines ── */
+.cinematic-grid {
+  background-size: 80px 80px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* ── Section Divider Line ── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(255, 107, 26, 0.3) 50%,
+    rgba(255, 255, 255, 0.1) 80%,
+    transparent
+  );
+}
+
+/* ── Glow text effect ── */
+.text-glow {
+  text-shadow: 0 0 40px rgba(255, 107, 26, 0.3), 0 0 80px rgba(255, 107, 26, 0.1);
+}
+
+/* ── Smooth section transitions ── */
+section {
+  will-change: transform, opacity;
+}
+
+/* ── Orange gradient text ── */
+.gradient-text {
+  background: linear-gradient(135deg, #ff6b1a, #ff8533, #ff6b1a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Animated border glow ── */
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(255, 107, 26, 0.15); }
+  50% { border-color: rgba(255, 107, 26, 0.35); }
+}
+
+.border-glow {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* ── Smooth link underline animation ── */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--orange);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover::after {
+  width: 100%;
+}

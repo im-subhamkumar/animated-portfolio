@@ -1,0 +1,117 @@
+:root {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --pointer-from-center: 0;
+  --pointer-from-top: 0.5;
+  --pointer-from-left: 0.5;
+  --card-opacity: 0;
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  --background-x: 50%;
+  --background-y: 50%;
+  --behind-glow-color: rgba(255, 107, 26, 0.45);
+  --behind-glow-size: 35%;
+  --sunpillar-1: hsl(2, 100%, 73%);
+  --sunpillar-2: hsl(53, 100%, 69%);
+  --sunpillar-3: hsl(93, 100%, 69%);
+  --sunpillar-4: hsl(176, 100%, 76%);
+  --sunpillar-5: hsl(228, 100%, 74%);
+  --sunpillar-6: hsl(283, 100%, 73%);
+  --card-radius: 24px;
+}
+
+.pc-card-wrapper {
+  perspective: 600px;
+  transform: translate3d(0, 0, 0.1px);
+  position: relative;
+  touch-action: none;
+}
+
+.pc-behind {
+  position: absolute;
+  inset: -15px;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--pointer-x) var(--pointer-y),
+    var(--behind-glow-color) 0%,
+    transparent var(--behind-glow-size)
+  );
+  filter: blur(40px) saturate(1.2);
+  opacity: calc(0.85 * var(--card-opacity));
+  transition: opacity 250ms ease;
+  border-radius: var(--card-radius);
+}
+
+.pc-card-wrapper:hover,
+.pc-card-wrapper.active {
+  --card-opacity: 1;
+}
+
+.pc-card {
+  width: 100%;
+  max-width: 380px;
+  min-height: 500px;
+  border-radius: var(--card-radius);
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+  transform: translateZ(0) rotateX(0deg) rotateY(0deg);
+  background: #0d0d12;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.95), 0 0 20px -5px rgba(255, 107, 26, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.pc-card-wrapper:hover .pc-card,
+.pc-card-wrapper.active .pc-card {
+  transition: transform 0.08s ease-out;
+  transform: translateZ(10px) rotateX(var(--rotate-y)) rotateY(var(--rotate-x));
+  border-color: rgba(255, 107, 26, 0.4);
+}
+
+/* Foil holographic reflection overlay */
+.pc-foil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  mix-blend-mode: color-dodge;
+  opacity: calc(0.55 * var(--card-opacity));
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    var(--sunpillar-1) 25%,
+    var(--sunpillar-3) 45%,
+    var(--sunpillar-5) 65%,
+    transparent 85%
+  );
+  background-position: var(--background-x) var(--background-y);
+  background-size: 200% 200%;
+  transition: opacity 0.25s ease;
+}
+
+/* Glare highlight */
+.pc-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 15;
+  background: radial-gradient(
+    circle at var(--pointer-x) var(--pointer-y),
+    rgba(255, 255, 255, 0.35) 0%,
+    transparent 60%
+  );
+  opacity: calc(0.7 * var(--card-opacity));
+  transition: opacity 0.2s ease;
+}
+
+/* Subtle micro-grid background on card interior */
+.pc-inside-grid {
+  position: absolute;
+  inset: 0;
+  background-size: 20px 20px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
