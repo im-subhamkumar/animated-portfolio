@@ -7,10 +7,11 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Three.js](https://img.shields.io/badge/Three.js-black?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
 [![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/)
+[![Netlify](https://img.shields.io/badge/Netlify_Live-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://subham-kumar-animated-portfolio.netlify.app/)
 
 **Full-Stack Software Engineer & Agentic AI Specialist**
 
-[Portfolio Repository](https://github.com/im-subhamkumar/animated-portfolio) • [LinkedIn](https://www.linkedin.com/in/subham-kumar-738710154/) • [Email](mailto:subhamkumar.work@outlook.com) • [WhatsApp](https://wa.me/917488701545)
+🌐 **[Live Demo](https://subham-kumar-animated-portfolio.netlify.app/)** • [GitHub Repository](https://github.com/im-subhamkumar/animated-portfolio) • [LinkedIn](https://www.linkedin.com/in/subham-kumar-738710154/) • [Email](mailto:subhamkumar.work@outlook.com) • [WhatsApp](https://wa.me/917488701545)
 
 </div>
 
